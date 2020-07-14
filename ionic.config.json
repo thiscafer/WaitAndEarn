@@ -1,0 +1,7 @@
+{
+  "name": "waitAndEarn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
