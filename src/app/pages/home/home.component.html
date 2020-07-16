@@ -1,0 +1,50 @@
+<div class="parent">
+  <div class="two">
+    <span> Your Total Hashes</span>
+    <button [disabled]="!miningReady" color="primary" mat-raised-button>
+      {{ miningReady ? "378720" : "0" }}
+    </button>
+  </div>
+
+  <div class="two">
+    <button
+      [disabled]="!miningReady"
+      (click)="start()"
+      color="primary"
+      mat-raised-button
+    >
+      Start Mining
+    </button>
+    <button
+      [disabled]="!miningReady"
+      (click)="stop()"
+      color="primary"
+      mat-raised-button
+    >
+      Stop Mining
+    </button>
+  </div>
+  <div class="one">
+    <mat-progress-bar
+      mode="buffer"
+      [color]="bufferValue == 0 ? 'primary' : 'accent'"
+      [value]="bufferValue"
+    ></mat-progress-bar>
+  </div>
+
+  <div *ngIf="miningReady" class="one">
+    <mat-chip-list class="mat-chip-list-stacked">
+      <mat-chip selected
+        >{{ running ? "Miner is running" : "Miner is not running" }}
+      </mat-chip></mat-chip-list
+    >
+  </div>
+
+  <div *ngIf="!miningReady" class="one mt-50">
+    <mat-chip-list>
+      <mat-chip color="warn">{{ errorMessage }}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+
+

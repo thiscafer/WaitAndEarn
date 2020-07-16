@@ -1,0 +1,28 @@
+div.parent {
+  height: 100%;
+  padding: 50% 10px;
+
+  div.two {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0;
+  }
+ 
+
+  div.one {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    place-items: center;
+    margin: 15px 0;
+  }
+
+  .mt-50 {
+    margin-top: 50px !important;
+  }
+}
+
+
