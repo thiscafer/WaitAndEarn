@@ -1,0 +1,14 @@
+div.tabs {
+  width: 100%;
+  align-items: center;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  bottom: 0;
+}
+
+button.router-link-active {
+  background-color: #c2185b !important;
+  color: #fff;
+}
