@@ -1,12 +1,44 @@
-<div class="two">
-  <mat-form-field class="example-full-width">
-    <mat-label>Username</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi" />
-  </mat-form-field>
+<div *ngIf="!allService.isLoggedIn" class="parent">
+  <!-- 
+  <div class="one">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="email" placeholder="......@......" />
+      <mat-hint *ngIf="!email && submit">Email is required</mat-hint>
+    </mat-form-field>
+  </div>
 
-  <button color="primary" mat-raised-button>Save username</button>
+  <div class="one">
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        matInput
+        placeholder="password"
+      />
+      <mat-hint *ngIf="!password && submit">Password is required</mat-hint>
+    </mat-form-field>
+  </div> -->
+
+  <div class="one">
+    <button (click)="login()" color="primary" mat-raised-button>
+      Login with Google
+    </button>
+  </div>
+  <div class="one">
+    <mat-chip-list>
+      <mat-chip color="warn">You can start mining after logging in.</mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="one">
+    <mat-hint>
+      If you do not have an account, an account will be created for you if you
+      log in.
+    </mat-hint>
+  </div>
 </div>
 
-<div class="one">
-  <small>kljkkk</small>
+<div *ngIf="allService.isLoggedIn" class="parent">
+  Loggin
 </div>

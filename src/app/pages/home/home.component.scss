@@ -2,6 +2,10 @@ div.parent {
   height: 100%;
   padding: 50% 10px;
 
+  p.custom {
+    color: #c2185b;
+    text-align: center;
+  }
   div.two {
     align-items: center;
     display: grid;
@@ -9,7 +13,6 @@ div.parent {
     gap: 10px;
     margin: 15px 0;
   }
- 
 
   div.one {
     align-items: center;
@@ -25,4 +28,7 @@ div.parent {
   }
 }
 
-
+.mat-spinner {
+  position: relative;
+  margin-left: calc(50% - 50px);
+}

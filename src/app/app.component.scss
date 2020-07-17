@@ -8,6 +8,9 @@ div.tabs {
   bottom: 0;
 }
 
+div.tabs3 {
+  grid-template-columns: 1fr 1fr 1fr !important;
+}
 button.router-link-active {
   background-color: #c2185b !important;
   color: #fff;

@@ -1,5 +1,28 @@
 <router-outlet></router-outlet>
-<div class="tabs">
-  <button [routerLink]="['/earn']" routerLinkActive="router-link-active"  color="accent" mat-raised-button>Earn</button>
-  <button [routerLink]="['/profile']" routerLinkActive="router-link-active" color="accent" mat-raised-button>Profile</button>
+<div class="tabs" [class.tabs3]="allService.isLoggedIn()">
+  <button
+    [routerLink]="['/earn']"
+    routerLinkActive="router-link-active"
+    color="accent"
+    mat-raised-button
+  >
+    Earn
+  </button>
+  <button
+    [routerLink]="['/profile']"
+    routerLinkActive="router-link-active"
+    color="accent"
+    mat-raised-button
+  >
+    Profile
+  </button>
+
+  <button
+    (click)="allService.logout()"
+    *ngIf="allService.isLoggedIn()"
+    color="accent"
+    mat-raised-button
+  >
+    Logout
+  </button>
 </div>

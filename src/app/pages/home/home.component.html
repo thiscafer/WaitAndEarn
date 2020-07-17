@@ -1,4 +1,4 @@
-<div class="parent">
+<div *ngIf="!loading && miningReady" class="parent">
   <div class="two">
     <span> Your Total Hashes</span>
     <button [disabled]="!miningReady" color="primary" mat-raised-button>
@@ -6,9 +6,9 @@
     </button>
   </div>
 
-  <div class="two">
+  <div *ngIf="miningReady" class="two">
     <button
-      [disabled]="!miningReady"
+      [disabled]="!miningReady || running"
       (click)="start()"
       color="primary"
       mat-raised-button
@@ -16,7 +16,7 @@
       Start Mining
     </button>
     <button
-      [disabled]="!miningReady"
+      [disabled]="!miningReady || !running"
       (click)="stop()"
       color="primary"
       mat-raised-button
@@ -24,7 +24,7 @@
       Stop Mining
     </button>
   </div>
-  <div class="one">
+  <div *ngIf="miningReady" class="one">
     <mat-progress-bar
       mode="buffer"
       [color]="bufferValue == 0 ? 'primary' : 'accent'"
@@ -34,7 +34,7 @@
 
   <div *ngIf="miningReady" class="one">
     <mat-chip-list class="mat-chip-list-stacked">
-      <mat-chip selected
+      <mat-chip selected [color]="running ? 'primary' : 'accent'"
         >{{ running ? "Miner is running" : "Miner is not running" }}
       </mat-chip></mat-chip-list
     >
@@ -45,6 +45,14 @@
       <mat-chip color="warn">{{ errorMessage }}</mat-chip>
     </mat-chip-list>
   </div>
+</div>
 
+<div *ngIf="!loading && !miningReady" class="parent">
+  <p class="custom">
+    {{ errorMessage }}
+  </p>
+</div>
 
-
+<div *ngIf="loading" class="parent">
+  <mat-spinner></mat-spinner>
+</div>
