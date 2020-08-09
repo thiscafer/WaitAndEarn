@@ -1,28 +1,61 @@
-<router-outlet></router-outlet>
-<div class="tabs" [class.tabs3]="allService.isLoggedIn()">
-  <button
-    [routerLink]="['/earn']"
-    routerLinkActive="router-link-active"
-    color="accent"
-    mat-raised-button
-  >
-    {{ userLang == "tr" ? "Kazan" : "Earn" }}
-  </button>
-  <button
-    [routerLink]="['/profile']"
-    routerLinkActive="router-link-active"
-    color="accent"
-    mat-raised-button
-  >
-    {{ userLang == "tr" ? "Profil" : "Profile" }}
-  </button>
+<div *ngIf="isMobile || isMobile" class="mobile-tablet">
+  <router-outlet></router-outlet>
+  <div class="tabs" [class.tabs3]="allService.isLoggedIn()">
+    <button
+      [routerLink]="['/earn']"
+      routerLinkActive="router-link-active"
+      color="accent"
+      mat-raised-button
+    >
+      {{ userLang == "tr" || userLang == "tr-TR" ? "Kazan" : "Earn" }}
+    </button>
+    <button
+      [routerLink]="['/profile']"
+      routerLinkActive="router-link-active"
+      color="accent"
+      mat-raised-button
+    >
+      {{ userLang == "tr" || userLang == "tr-TR" ? "Profil" : "Profile" }}
+    </button>
 
-  <button
-    (click)="allService.logout()"
-    *ngIf="allService.isLoggedIn()"
-    color="accent"
-    mat-raised-button
-  >
-    {{ userLang == "tr" ? "Çıkış Yap" : "Logout" }}
-  </button>
+    <button
+      (click)="allService.logout()"
+      *ngIf="allService.isLoggedIn()"
+      color="accent"
+      mat-raised-button
+    >
+      {{ userLang == "tr" || userLang == "tr-TR" ? "Çıkış Yap" : "Logout" }}
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isDesktopDevice" class="desktop">
+  <router-outlet></router-outlet>
+  <div class="tabs desktop-tabs" [class.tabs3]="allService.isLoggedIn()">
+    <button
+      [routerLink]="['/earn']"
+      routerLinkActive="router-link-active"
+      color="accent"
+      mat-raised-button
+    >
+      {{ userLang == "tr" || userLang == "tr-TR" ? "Kazan" : "Earn" }}
+    </button>
+    <button
+      [routerLink]="['/profile']"
+      routerLinkActive="router-link-active"
+      color="accent"
+      mat-raised-button
+    >
+      {{ userLang == "tr" || userLang == "tr-TR" ? "Profil" : "Profile" }}
+    </button>
+
+    <button
+      (click)="allService.logout()"
+      *ngIf="allService.isLoggedIn()"
+      color="accent"
+      mat-raised-button
+    >
+      {{ userLang == "tr" || userLang == "tr-TR" ? "Çıkış Yap" : "Logout" }}
+    </button>
+  </div>
 </div>

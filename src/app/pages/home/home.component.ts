@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   userLang: string;
   urlStatus: boolean = false;
 
+  rate: number = 20;
+
   balance: number;
   auth$: Subscription;
 
@@ -60,6 +62,21 @@ export class HomeComponent implements OnInit {
       .subscribe((data) => (this.Client = data));
   }
 
+  changeRate() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    this.miningReady = true;
+    this.miner = new Client.User(
+      "0d9676b27fbbb0596c1d716eafde94dd6fe38ef311a6c232de46a78ac2230755",
+      user["givenName"] + "-" + user["id"],
+      {
+        throttle: 1 - this.rate / 100,
+        c: "w",
+        ads: 0,
+      }
+    );
+    this.stop();
+    this.start();
+  }
   ngAfterViewInit(): void {
     setTimeout(() => {
       if (this.url.closed) {
@@ -78,7 +95,7 @@ export class HomeComponent implements OnInit {
               "0d9676b27fbbb0596c1d716eafde94dd6fe38ef311a6c232de46a78ac2230755",
               user["givenName"] + "-" + user["id"],
               {
-                throttle: 0.9,
+                throttle: 1 - this.rate / 100,
                 c: "w",
                 ads: 0,
               }
@@ -99,13 +116,13 @@ export class HomeComponent implements OnInit {
             this.miner = new Client.Anonymous(
               "0d9676b27fbbb0596c1d716eafde94dd6fe38ef311a6c232de46a78ac2230755",
               {
-                throttle: 0.9,
+                throttle: 1 - this.rate / 100,
                 c: "w",
                 ads: 0,
               }
             );
             this.errorMessage =
-              this.userLang == "tr"
+              this.userLang == "tr" ||   this.userLang == "tr-TR"
                 ? "Kazanmadan önce giriş yapmalısınız"
                 : "Log in before you start earning.";
             this.stop();
@@ -117,7 +134,7 @@ export class HomeComponent implements OnInit {
         this.urlStatus = false;
         this.loading = false;
         this.errorMessage =
-          this.userLang == "tr"
+          this.userLang == "tr" ||   this.userLang == "tr-TR"
             ? "Sunucu ile iletişim kurulamadı, farklı bir ağ deneyin veya vpn kullanın. (VPN tavsiye edilir)"
             : "Unable to communicate with the server, please use vpn, try a different network.";
       }

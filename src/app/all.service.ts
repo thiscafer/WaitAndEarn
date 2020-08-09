@@ -13,7 +13,7 @@ const { SplashScreen, GoogleAuth } = Plugins;
 export class AllService {
   //oatuhkey 675059146750-t9gu0br2087a2to38dnp87vt7d6a98h8.apps.googleusercontent.com
   user: User;
-  backendurl: string = "http://localhost:5000/";
+  backendurl: string = "https://waitandearn.herokuapp.com/";
   url: string = "https://www.coinimp.com/api/v2/";
   sitekey: string =
     "0d9676b27fbbb0596c1d716eafde94dd6fe38ef311a6c232de46a78ac2230755";

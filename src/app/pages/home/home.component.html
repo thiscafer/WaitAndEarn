@@ -58,6 +58,30 @@
 </div>
 
 <div *ngIf="!loading && miningReady" class="parent">
+  <div class="one">
+    <div>
+      {{
+        userLang == "tr"
+          ? "% kaç içlemci kullanılsın ?"
+          : "
+        how much processor should be used ?"
+      }}
+      %{{ rate }}
+    </div>
+  </div>
+  <div class="one">
+    <mat-slider
+      style="width: 100%;"
+      thumbLabel
+      step="10"
+      tickInterval="1"
+      [thumbLabel]="true"
+      [(ngModel)]="rate"
+      (change)="changeRate()"
+      min="0"
+      max="100"
+    ></mat-slider>
+  </div>
   <div class="two">
     <span>
       {{
@@ -67,7 +91,7 @@
       }}
     </span>
     <button [disabled]="!miningReady" color="primary" mat-raised-button>
-      <span>{{ balance }} WEB</span>
+      <span>{{ balance | number }} WEB</span>
     </button>
   </div>
 
@@ -78,7 +102,11 @@
       color="primary"
       mat-raised-button
     >
-      {{ userLang == "tr" ? "Kazanmayı Başlat" : "Start Mining" }}
+      {{
+        userLang == "tr" || userLang == "tr-TR"
+          ? "Kazanmayı Başlat"
+          : "Start Mining"
+      }}
     </button>
     <button
       [disabled]="!miningReady || !running"
@@ -86,7 +114,11 @@
       color="primary"
       mat-raised-button
     >
-      {{ userLang == "tr" ? "Kazanmayı Durdur" : "Stop Mining" }}
+      {{
+        userLang == "tr" || userLang == "tr-TR"
+          ? "Kazanmayı Durdur"
+          : "Stop Mining"
+      }}
     </button>
   </div>
   <div *ngIf="miningReady" class="one">
@@ -101,10 +133,18 @@
     <mat-chip-list class="mat-chip-list-stacked">
       <mat-chip selected [color]="running ? 'primary' : 'accent'">
         <span *ngIf="running">
-          {{ userLang == "tr" ? "Madenci çalışıyor" : "Miner is running" }}
+          {{
+            userLang == "tr" || userLang == "tr-TR"
+              ? "Madenci çalışıyor"
+              : "Miner is running"
+          }}
         </span>
         <span *ngIf="!running">
-          {{ userLang == "tr" ? "Madenci çalışmıyor" : "Miner is not running" }}
+          {{
+            userLang == "tr" || userLang == "tr-TR"
+              ? "Madenci çalışmıyor"
+              : "Miner is not running"
+          }}
         </span>
       </mat-chip></mat-chip-list
     >

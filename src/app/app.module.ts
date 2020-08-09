@@ -19,6 +19,8 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ModalComponent } from "./pages/modal/modal.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatSliderModule } from "@angular/material/slider";
+import { DeviceDetectorModule } from "ngx-device-detector";
 
 var firebaseConfig = {
   apiKey: "AIzaSyAW65E3hv291LIJJXTaZehB9a-Al5pj940",
@@ -47,6 +49,8 @@ var firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     MatProgressSpinnerModule,
+    MatSliderModule,
+    DeviceDetectorModule.forRoot(),
   ],
   providers: [
     StatusBar,

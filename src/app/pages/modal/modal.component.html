@@ -1,29 +1,76 @@
-<p>
-  <strong>Opening</strong>
-  First of all, this application does not perform any operations without your
-  permission.
-</p>
-<p>
-  <strong>How do I earn ?</strong>
-  The app saves you money by using the processor power of your phone to the
-  extent you set.
-</p>
+<div class="parent">
+  <p>
+    <strong>
+      {{
+        userLang == "tr" || userLang == "tr-TR" ? "Açılış" : "Opening"
+      }}</strong
+    >
 
-<p>
-  <strong>Why did we code this application ?</strong>
-  So people can use their phones for more meaningful things instead of wasting
-  time.
-</p>
+    {{
+      userLang == "tr" || userLang == "tr-TR"
+        ? "Öncelikle, bu uygulama sizin izninizi almadan herhangi bir işlem yapmaz."
+        : "First of all, this application does not perform any operations without your
+  permission"
+    }}
+  </p>
+  <p>
+    <strong>
+      {{
+        userLang == "tr" || userLang == "tr-TR"
+          ? "Nasıl kazanacağım ?"
+          : "How do I earn ?"
+      }}
+    </strong>
 
-<p>
-  <strong>How do I get paid ?</strong>
-  The application generates WebCoin for you. The minimum withdrawal amount is 20
-  WebCoins. When you want to shoot, you will be asked for a wallet code and your
-  coins will be transferred there.
-</p>
+    {{
+      userLang == "tr" || userLang == "tr-TR"
+        ? "Uygulama sizin işlemci gücünüzü sizin istediğiniz oranda kullanarak sizin için WEB coin üretir."
+        : " The app saves you money by using the processor power of your phone to the
+      extent you set."
+    }}
+  </p>
 
-<button (click)="close()" color="primary" mat-raised-button>
-  Let's earn !
-</button>
+  <p>
+    <strong>
+      {{
+        userLang == "tr" || userLang == "tr-TR"
+          ? "Bu uygulamayı neden kodladık ?"
+          : "Why did we code this application ?"
+      }}
+    </strong>
 
+    {{
+      userLang == "tr" || userLang == "tr-TR"
+        ? "İnsanlar telefonda zaman kaybetmek yerine gelecekte değerlenebilecek bir kripto para için zaman harcayabilsin diye."
+        : "So people can use their phones for more meaningful things instead of wasting
+      time."
+    }}
+  </p>
 
+  <p>
+    <strong>
+      {{
+        userLang == "tr" || userLang == "tr-TR"
+          ? "Nasıl ödeme alırım ?"
+          : "How do I get paid ?"
+      }}
+    </strong>
+
+    {{
+      userLang == "tr" || userLang == "tr-TR"
+        ? "Uygulama sizin için WEB coin üretir. Minimum çekim tutarı 20 WebCoin. Çekim yapmak istediğinizde sizden istenilen WEB coin cüzdan adresinizi girdiğinizde kazançlarınız o hesaba aktarılacaktır. Cüzdan oluşturmak için önerilen web sitesi : www.mintme.com "
+        : "The application generates WebCoin for you. The minimum withdrawal amount is 20
+  WebCoin. When you want to shoot, you will be asked for a wallet code and your
+  coins will be transferred there. 
+  Recommended website for creating wallets: www.mintme.com"
+    }}
+  </p>
+
+  <button (click)="close()" color="primary" mat-raised-button>
+    {{
+      userLang == "tr" || userLang == "tr-TR"
+        ? "Kazanmaya başlayalım !"
+        : "Let's earn !"
+    }}
+  </button>
+</div>

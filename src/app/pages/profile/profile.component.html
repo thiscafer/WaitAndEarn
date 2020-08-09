@@ -23,14 +23,14 @@
 
   <div class="one">
     <button (click)="login()" color="primary" mat-raised-button>
-      {{ userLang == "tr" ? "Google ile giriş yap" : "Login with Google" }}
+      {{ userLang == "tr" || userLang == "tr-TR"  ? "Google ile giriş yap" : "Login with Google" }}
     </button>
   </div>
   <div class="one">
     <mat-chip-list>
       <mat-chip color="warn">
         {{
-          userLang == "tr"
+          userLang == "tr" ||   this.userLang == "tr-TR"
             ? "Giriş yaptıktan sonra kazanmaya başlayabilirsiniz."
             : "You can start mining after logging in."
         }}</mat-chip
@@ -40,7 +40,7 @@
   <div class="one">
     <mat-hint>
       {{
-        userLang == "tr"
+        userLang == "tr" ||   this.userLang == "tr-TR"
           ? "Eğer bir hesabınız yoksa giriş yapmanız durumunda sizin için bir hesap oluşturulacaktır."
           : " If you do not have an account, an account will be created for you if you
     log in."
@@ -49,7 +49,7 @@
   </div>
 </div>
 
-<div class="parent">
+<div *ngIf="allService.isLoggedIn()" class="parent">
   <div class="one">
     <div><img style="border-radius: 50%;" src="{{ user.imageUrl }}" /></div>
   </div>
