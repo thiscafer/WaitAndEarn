@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">waitAndEarn</string>
-    <string name="title_activity_main">waitAndEarn</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">waitandearn</string>
+    <string name="title_activity_main">waitandearn</string>
+    <string name="package_name">com.waitandearn</string>
+    <string name="custom_url_scheme">com.waitandearn</string>
+    <string name="server_client_id">675059146750-t9gu0br2087a2to38dnp87vt7d6a98h8.apps.googleusercontent.com</string>
 </resources>

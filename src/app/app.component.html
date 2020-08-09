@@ -6,7 +6,7 @@
     color="accent"
     mat-raised-button
   >
-    Earn
+    {{ userLang == "tr" ? "Kazan" : "Earn" }}
   </button>
   <button
     [routerLink]="['/profile']"
@@ -14,7 +14,7 @@
     color="accent"
     mat-raised-button
   >
-    Profile
+    {{ userLang == "tr" ? "Profil" : "Profile" }}
   </button>
 
   <button
@@ -23,6 +23,6 @@
     color="accent"
     mat-raised-button
   >
-    Logout
+    {{ userLang == "tr" ? "Çıkış Yap" : "Logout" }}
   </button>
 </div>

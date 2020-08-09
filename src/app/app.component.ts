@@ -5,18 +5,20 @@ import { SplashScreen } from "@ionic-native/splash-screen/ngx";
 import { StatusBar } from "@ionic-native/status-bar/ngx";
 import { ModalComponent } from "./pages/modal/modal.component";
 import { AllService } from './all.service';
+import "@codetrix-studio/capacitor-google-auth";
 @Component({
   selector: "app-root",
   templateUrl: "app.component.html",
   styleUrls: ["app.component.scss"],
 })
 export class AppComponent {
+  userLang : string
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
+    public platform: Platform,
+    public splashScreen: SplashScreen,
+    public statusBar: StatusBar,
     public modalController: ModalController,
-    private allService: AllService
+    public allService: AllService
   ) {
     this.initializeApp();
   }
@@ -28,6 +30,8 @@ export class AppComponent {
     });
   }
   async ngOnInit() {
+    this.userLang = navigator.language ; 
+
     if (!localStorage.getItem("user")) {
       const modal = await this.presentModal();
     }

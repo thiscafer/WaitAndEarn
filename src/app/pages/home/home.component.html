@@ -1,8 +1,73 @@
+<div
+  style="
+    width: 100%;
+    background-color: #1d2330;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #282e3b;
+    border-radius: 4px;
+    text-align: right;
+    line-height: 14px;
+    block-size: 197px;
+    font-size: 12px;
+    font-feature-settings: normal;
+    text-size-adjust: 100%;
+    box-shadow: inset 0 -20px 0 0 #262b38;
+    padding: 1px;
+    padding: 0px;
+    margin: 0px;
+  "
+>
+  <div style="height: 200px; padding: 0px; margin: 0px; width: 100%;">
+    <iframe
+      src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=122810&pref_coin_id=1505"
+      height="196px"
+      scrolling="auto"
+      marginwidth="0"
+      marginheight="0"
+      frameborder="0"
+      border="0"
+      style="border: 0; margin: 0; padding: 0; line-height: 14px; width: 100%;"
+    ></iframe>
+  </div>
+  <div
+    style="
+      color: #626b7f;
+      line-height: 14px;
+      font-weight: 400;
+      font-size: 11px;
+      box-sizing: border-box;
+      padding: 2px 6px;
+      width: 100%;
+      font-family: Verdana, Tahoma, Arial, sans-serif;
+    "
+  >
+    <a
+      href="https://coinlib.io"
+      target="_blank"
+      style="
+        font-weight: 500;
+        color: #626b7f;
+        text-decoration: none;
+        font-size: 11px;
+      "
+    >
+      Cryptocurrency Prices</a
+    >&nbsp;by Coinlib
+  </div>
+</div>
+
 <div *ngIf="!loading && miningReady" class="parent">
   <div class="two">
-    <span> Your Total Hashes</span>
+    <span>
+      {{
+        userLang == "tr"
+          ? "Toplam WEB coin kazancınız"
+          : "Total WEB coin earning"
+      }}
+    </span>
     <button [disabled]="!miningReady" color="primary" mat-raised-button>
-      {{ miningReady ? "378720" : "0" }}
+      <span>{{ balance }} WEB</span>
     </button>
   </div>
 
@@ -13,7 +78,7 @@
       color="primary"
       mat-raised-button
     >
-      Start Mining
+      {{ userLang == "tr" ? "Kazanmayı Başlat" : "Start Mining" }}
     </button>
     <button
       [disabled]="!miningReady || !running"
@@ -21,7 +86,7 @@
       color="primary"
       mat-raised-button
     >
-      Stop Mining
+      {{ userLang == "tr" ? "Kazanmayı Durdur" : "Stop Mining" }}
     </button>
   </div>
   <div *ngIf="miningReady" class="one">
@@ -34,8 +99,13 @@
 
   <div *ngIf="miningReady" class="one">
     <mat-chip-list class="mat-chip-list-stacked">
-      <mat-chip selected [color]="running ? 'primary' : 'accent'"
-        >{{ running ? "Miner is running" : "Miner is not running" }}
+      <mat-chip selected [color]="running ? 'primary' : 'accent'">
+        <span *ngIf="running">
+          {{ userLang == "tr" ? "Madenci çalışıyor" : "Miner is running" }}
+        </span>
+        <span *ngIf="!running">
+          {{ userLang == "tr" ? "Madenci çalışmıyor" : "Miner is not running" }}
+        </span>
       </mat-chip></mat-chip-list
     >
   </div>
@@ -48,6 +118,18 @@
 </div>
 
 <div *ngIf="!loading && !miningReady" class="parent">
+  <div
+    class="coinmarketcap-currency-widget"
+    data-currencyid="3027"
+    data-base="USD"
+    data-secondary=""
+    data-ticker="true"
+    data-rank="false"
+    data-marketcap="false"
+    data-volume="false"
+    data-statsticker="true"
+    data-stats="USD"
+  ></div>
   <p class="custom">
     {{ errorMessage }}
   </p>

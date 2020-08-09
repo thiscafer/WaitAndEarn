@@ -1,4 +1,4 @@
-<div *ngIf="!allService.isLoggedIn" class="parent">
+<div *ngIf="!allService.isLoggedIn()" class="parent">
   <!-- 
   <div class="one">
     <mat-form-field class="example-full-width">
@@ -23,22 +23,38 @@
 
   <div class="one">
     <button (click)="login()" color="primary" mat-raised-button>
-      Login with Google
+      {{ userLang == "tr" ? "Google ile giriş yap" : "Login with Google" }}
     </button>
   </div>
   <div class="one">
     <mat-chip-list>
-      <mat-chip color="warn">You can start mining after logging in.</mat-chip>
+      <mat-chip color="warn">
+        {{
+          userLang == "tr"
+            ? "Giriş yaptıktan sonra kazanmaya başlayabilirsiniz."
+            : "You can start mining after logging in."
+        }}</mat-chip
+      >
     </mat-chip-list>
   </div>
   <div class="one">
     <mat-hint>
-      If you do not have an account, an account will be created for you if you
-      log in.
+      {{
+        userLang == "tr"
+          ? "Eğer bir hesabınız yoksa giriş yapmanız durumunda sizin için bir hesap oluşturulacaktır."
+          : " If you do not have an account, an account will be created for you if you
+    log in."
+      }}
     </mat-hint>
   </div>
 </div>
 
-<div *ngIf="allService.isLoggedIn" class="parent">
-  Loggin
+<div class="parent">
+  <div class="one">
+    <div><img style="border-radius: 50%;" src="{{ user.imageUrl }}" /></div>
+  </div>
+  <div class="two">
+    <div>Email :</div>
+    <div>{{ user.email }}</div>
+  </div>
 </div>

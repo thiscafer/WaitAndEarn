@@ -1,12 +1,20 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "waitAndEarn",
+  "appId": "com.waitandearn",
+  "appName": "waitandearn",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
+    },
+    "GoogleAuth": {
+      "scopes": [
+        "profile",
+        "email"
+      ],
+      "serverClientId": "675059146750-t9gu0br2087a2to38dnp87vt7d6a98h8.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
     }
   },
   "cordova": {}
