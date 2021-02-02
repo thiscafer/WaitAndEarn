@@ -18,7 +18,7 @@
     margin: 0px;
   "
 >
-  <div style="height: 200px; padding: 0px; margin: 0px; width: 100%;">
+  <div style="height: 200px; padding: 0px; margin: 0px; width: 100%">
     <iframe
       src="https://widget.coinlib.io/widget?type=single_v2&theme=dark&coin_id=122810&pref_coin_id=1505"
       height="196px"
@@ -27,7 +27,7 @@
       marginheight="0"
       frameborder="0"
       border="0"
-      style="border: 0; margin: 0; padding: 0; line-height: 14px; width: 100%;"
+      style="border: 0; margin: 0; padding: 0; line-height: 14px; width: 100%"
     ></iframe>
   </div>
   <div
@@ -61,7 +61,7 @@
   <div class="one">
     <div>
       {{
-        userLang == "tr"
+        userLang == "tr" || userLang == "tr-TR"
           ? "% kaç içlemci kullanılsın ?"
           : "
         how much processor should be used ?"
@@ -71,7 +71,7 @@
   </div>
   <div class="one">
     <mat-slider
-      style="width: 100%;"
+      style="width: 100%"
       thumbLabel
       step="10"
       tickInterval="1"

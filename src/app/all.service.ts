@@ -16,7 +16,7 @@ export class AllService {
   backendurl: string = "https://waitandearn.herokuapp.com/";
   url: string = "https://www.coinimp.com/api/v2/";
   sitekey: string =
-    "0d9676b27fbbb0596c1d716eafde94dd6fe38ef311a6c232de46a78ac2230755";
+    "459679678a2778cba1b2f3913be67e33dec7b7a5605d131ba8009d8f7335a089";
 
   keys = {
     public: "e2466ebdd40e5539832b7f21e7e06d32d28d0a12ebfb18dbc8024bb6b0f68c6e",
